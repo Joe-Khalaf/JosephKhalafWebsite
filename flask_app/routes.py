@@ -286,13 +286,13 @@ def inject_year():
 
 
 @app.route('/')
-def root():
-    return redirect(url_for('home'))
+def home():
+    return render_template('home.html', featured_projects=PROFESSIONAL_PROJECTS[:3])
 
 
 @app.route('/home')
-def home():
-    return render_template('home.html', featured_projects=PROFESSIONAL_PROJECTS[:3])
+def home_legacy():
+    return redirect(url_for('home'), code=301)
 
 
 @app.route('/about')
