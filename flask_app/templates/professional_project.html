@@ -1,0 +1,47 @@
+{% extends "shared/layout.html" %}
+{% block title %}{{ project.name }} — Joseph Khalaf{% endblock %}
+{% block maincontent %}
+<article class="case-study">
+    <header class="case-hero shell reveal">
+        <a href="{{ url_for('projects') }}" class="back-link">← All work</a>
+        <div class="case-hero__heading">
+            <div><p class="eyebrow">{{ project.category }}</p><h1>{{ project.name }}</h1></div>
+            {% if project.logo %}<img class="case-hero__logo" src="{{ url_for('static', filename=project.logo) }}" alt="{{ project.name }} logo">{% endif %}
+        </div>
+        <p class="case-hero__lede">{{ project.headline }}</p>
+        <div class="case-meta"><div><span>Context</span><strong>{{ project.context|default('Bazco / Chillbox') }}</strong></div><div><span>Role</span><strong>{{ project.role|default('Product & Engineering') }}</strong></div><div><span>Focus</span><strong>{{ project.focus }}</strong></div></div>
+    </header>
+    <section class="case-body shell"><aside><p>Project overview</p></aside><div><h2>{{ project.problem_title }}</h2><p>{{ project.description }}</p><div class="case-features">{% for feature in project.features %}<div><span>0{{ loop.index }}</span><h3>{{ feature.title }}</h3><p>{{ feature.text }}</p></div>{% endfor %}</div>{% if project.capabilities %}<div class="capability-panel"><p class="eyebrow">What the platform enables</p><ul>{% for capability in project.capabilities %}<li>{{ capability }}</li>{% endfor %}</ul></div>{% endif %}</div></section>
+    {% if project.automations %}
+    <section class="automation-portfolio shell reveal">
+        <div class="automation-portfolio__heading"><p class="eyebrow">Selected workflows</p><h2>Nine focused automations.</h2><p>Select a workflow to see how it works.</p></div>
+        <div class="automation-list">{% for automation in project.automations %}<details><summary><span>0{{ loop.index }}</span><strong>{{ automation.name }}</strong><b>+</b></summary><div><p>{{ automation.practical }}</p><p><strong>Technical:</strong> {{ automation.technical }}</p></div></details>{% endfor %}</div>
+    </section>
+    {% endif %}
+    {% if project.gallery %}
+    <section class="case-gallery shell reveal">
+        <div class="case-gallery__heading"><p class="eyebrow">Inside the product</p><h2>From reporting to insight.</h2></div>
+        <div class="case-gallery__grid">{% for item in project.gallery %}<figure><img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.title }} screen from {{ project.name }}" loading="lazy"><figcaption><strong>{{ item.title }}</strong><span>{{ item.text }}</span></figcaption></figure>{% endfor %}</div>
+    </section>
+    {% endif %}
+    {% if project.technical_summary %}
+    <section class="technical-section">
+        <div class="shell technical-section__intro reveal">
+            <aside><p>Under the hood</p></aside>
+            <div><p class="eyebrow">Technical architecture</p><h2>Built across the full stack.</h2><p>{{ project.technical_summary }}</p></div>
+        </div>
+        <div class="shell architecture-grid">
+            {% for item in project.architecture %}
+            <article class="architecture-card reveal"><span>0{{ loop.index }}</span><h3>{{ item.title }}</h3><p>{{ item.text }}</p></article>
+            {% endfor %}
+        </div>
+        <div class="shell technology-list reveal">
+            <p class="eyebrow">Technology</p>
+            {% for group in project.technology_groups %}<div><strong>{{ group['label'] }}</strong><span>{{ group['items'] }}</span></div>{% endfor %}
+        </div>
+    </section>
+    {% endif %}
+    <section class="case-stack shell"><p class="eyebrow">What it demonstrates</p><div>{% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}</div></section>
+    <nav class="next-project shell"><span>Next project</span><a href="{{ url_for('professional_project', slug=next_project.slug) }}">{{ next_project.name }} <b>→</b></a></nav>
+</article>
+{% endblock %}

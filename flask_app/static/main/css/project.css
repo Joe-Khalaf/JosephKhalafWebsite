@@ -1,0 +1,213 @@
+
+.projects {
+    background: #FFF;
+    display: grid;
+    align-items: center;
+    height: auto;
+}
+
+.projects h1 {
+    margin-top: 3rem;
+    background-color: 18453B;
+    background-image: linear-gradient(to top, #0B9A6D 0%, #18453B 100%);
+    text-align: center;
+    background-size: 100%;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.project__container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;    
+    justify-self: center;
+    margin: 0 auto;
+}
+
+.project__card {
+    margin: 0.5rem;
+    height: 12.5rem;
+    width: 12.5rem;
+    border-radius: 4px;
+    background-image: linear-gradient(to top, #000000 0%, rgba(17,17,17,0.2) 30%),url("../images/MHacks\ Logo.png");
+    background-size: cover;
+    position: relative;
+    color: #FFF;
+    border-radius: 40px;
+}
+
+.project__card:nth-child(2) {
+    background-image: linear-gradient(to top, #000000 0%, rgba(17,17,17,0.2) 30%), url("../images/connect4.jpg");
+}
+
+.project__card:nth-child(3) {
+    background-image: linear-gradient(to top, #000000 0%, rgba(17,17,17,0.2) 30%), url("../images/robofest.jpg");
+}
+
+.project__card:nth-child(4) {
+    background-image: linear-gradient(to top, #000000 0%, rgba(17,17,17,0.2) 30%), url("../images/trello.png");
+}
+
+.project__card:nth-child(5) {
+    background-image: linear-gradient(to top, #000000 0%, rgba(17,17,17,0.2) 30%), url("../images/canadianexperiencepic.png");
+}
+
+.project__card:nth-child(6) {
+    background-image: linear-gradient(to top, #000000 0%, rgba(17,17,17,0.2) 30%), url("../images/WordleHelpPhoto.png");
+}
+
+.project__card:nth-child(7) {
+    background-image: linear-gradient(to top, #000000 0%, rgba(17,17,17,0.2) 30%), url("../images/halloween\ sudoku.png");
+}
+
+.project__card:nth-child(8) {
+    background-image: linear-gradient(to top, #000000 0%, rgba(17,17,17,0.2) 30%), url("../images/piano.jpeg");
+}
+
+.projects h2 {
+    position: absolute;
+    top: 8rem;
+    left: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.project__card p {
+    position: absolute;
+    top: 9.75rem;
+    left: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.project__card button {
+    color: #FFF;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #0B9A6D;
+    position: absolute;
+    top: 440px;
+    left: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.project__card button:hover {
+    transition: all 0.35s;
+    background: #18453B;
+}
+
+.project__card:hover {
+    transform: translateY(-15px); /* Slide up by 10px */
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.project__carousel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 0.1rem;
+    padding: 1rem;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow: visible; /* No scrolling */
+}
+
+
+.project__carousel::-webkit-scrollbar {
+    display: none; 
+}
+
+.carousel-dots {
+    display: none; /* Hide dots by default (desktop view) */
+}
+
+@media screen and (max-width: 768px){
+    .project__card {
+        height: 800px;
+        width: 200px;
+    }
+    
+    .projects h2 {
+        top: 325px;
+        left: 15px;
+    }
+
+    .project__card p {
+        top: 360px;
+        left: 15px;
+    }
+
+    .projects h1 {
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+
+    .project__container{
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 width/2;
+    }
+
+    .project__container {
+        display: none;
+    }
+
+    .project__carousel {
+        display: flex; 
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding: 0 1rem; 
+        scroll-padding: 1rem;
+    }
+
+    .project__carousel a {
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        width: 250px; 
+        height: auto; 
+        aspect-ratio: 3 / 5; 
+    }
+    
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 10px;
+    }
+
+    .carousel-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ccc;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .carousel-dots .dot.active {
+        background-color: #0B9A6D;
+    }
+    
+}
+
+@media screen and (max-width: 480px){
+    .projects h1 {
+        font-size: 1.2rem;
+    }
+
+    .project__card {
+        width: 300px;
+    }
+}

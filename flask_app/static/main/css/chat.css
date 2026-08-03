@@ -1,0 +1,138 @@
+/* ======================== */
+/* Chat Container           */
+/* ======================== */
+.chat-container {
+    width: 75%;
+    height: 20rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    border: 0.1rem solid #ccc;
+    border-radius: 1rem;
+    background-color: #f8f8f8;
+    font-size: 1rem;
+    resize: none;
+    overflow-y: auto;
+    margin-bottom: 3%;
+    margin-left: 12.5%;
+}
+
+/* ======================== */
+/* Chat Input Section       */
+/* ======================== */
+.chat-input-container {
+    display: flex;
+    padding: 5%;
+    background-color: #ffffff;
+    border-top: 0.1rem solid #ddd;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.chat-send-button {
+    margin-left: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #0B9A6D;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.chat-send-button:hover {
+    background-color: #18453B;
+}
+
+/* ======================== */
+/* Leave Chat Button        */
+/* ======================== */
+.leave-room-container {
+    text-align: center;
+}
+
+.leave-room-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #d9534f;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 2rem;
+}
+
+.leave-room-button:hover {
+    background-color: #c9302c;
+}
+
+/* ======================== */
+/* Chat Message Styles      */
+/* ======================== */
+.chat-message.owner {
+    text-align: right;
+    color: blue;
+}
+
+.chat-message.guest {
+    text-align: left;
+    color: gray;
+}
+
+.chat-message.system {
+    text-align: center;
+    color: black;
+    font-style: italic;
+}
+
+/* ======================== */
+/* Chat Message Styles      */
+/* ======================== */
+.message-owner {
+    text-align: right;
+    color: blue;
+}
+
+.message-guest {
+    text-align: left;
+    color: gray;
+}
+
+.system-message-owner {
+    text-align: right;
+    color: blue;
+    font-style: italic;
+}
+
+.system-message-guest {
+    text-align: left;
+    color: gray;
+    font-style: italic;
+}
+
+/* ======================== */
+/* Responsive Design        */
+/* ======================== */
+@media screen and (max-width: 650px) {
+    .chat-container {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .chat-input-container {
+        flex-direction: column;
+    }
+    .chat-input {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .chat-send-button {
+        width: 100%;
+    }
+}

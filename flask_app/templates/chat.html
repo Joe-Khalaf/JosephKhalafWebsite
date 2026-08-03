@@ -1,0 +1,37 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="/static/main/css/chat.css">
+{% endblock %}
+
+{% block maincontent %}
+<!-- Hidden element to store the user's email -->
+<div id="user-email" style="display: none;">{{ user }}</div>
+
+<!-- Chat Messages Area -->
+<div id="chat" class="chat-container"></div>
+
+<!-- Input and Buttons -->
+<div class="chat-input-container">
+    <input
+    type="text"
+    id="chat-input"
+    class="chat-input"
+    placeholder="Enter your message here..."
+    title="Type your message and press Send."
+    />
+    <button id="send-button" class="chat-send-button">Send</button>
+</div>
+
+<!-- Leave Room Button -->
+<div class="leave-room-container">
+    <button id="leave-button" class="leave-room-button">Leave Chat</button>
+</div>
+{% endblock %}
+
+
+
+{% block extrajs %}
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script src="/static/main/js/chat.js"></script>
+{% endblock %}

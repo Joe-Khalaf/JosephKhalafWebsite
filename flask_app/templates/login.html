@@ -1,0 +1,46 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="../static/main/css/login.css">
+{% endblock %}
+
+{% block maincontent %}
+<div class="login-container">
+    <h1 class="login-title">Welcome Back</h1>
+    <p class="login-description">Please log in to continue.</p>
+    <form id="login-form" class="login-form">
+        <div class="form-group">
+            <label for="email-login" class="form-label">Email Address</label>
+            <input
+                type="email"
+                id="email-login"
+                name="email"
+                class="form-input"
+                placeholder="Enter your email"
+                title="Enter a valid email address."
+                required
+            />
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-input"
+                placeholder="Enter your password"
+                title="Enter your password. It must match your registered password."
+                required
+            />
+        </div>
+        <!-- Error message container -->
+        <div id="error-msg" class="error-message d-none"></div>
+        <button type="submit" class="login-button">Login</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="static/main/js/login.js"></script>
+{% endblock %}

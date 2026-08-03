@@ -1,0 +1,73 @@
+{% extends "shared/layout.html" %}
+{% block title %}Work — Joseph Khalaf{% endblock %}
+
+{% macro project_widget(project) %}
+    <div class="project-widget project-widget--{{ project.art }}">
+        {% if project.logos %}<div class="project-widget__logos">{% for logo in project.logos %}<img src="{{ url_for('static', filename=logo) }}" alt="">{% endfor %}</div>
+        {% elif project.logo %}<img src="{{ url_for('static', filename=project.logo) }}" alt="{{ project.name }} logo">
+        {% elif project.art == 'sheets' %}<span class="fa-regular fa-file-excel" aria-hidden="true"></span>
+        {% elif project.art == 'map' %}<span class="fa-solid fa-map-location-dot" aria-hidden="true"></span>
+        {% else %}<span class="fa-solid fa-gears" aria-hidden="true"></span>{% endif %}
+    </div>
+{% endmacro %}
+
+{% macro compact_card(project) %}
+    <a class="project-tile project-tile--small reveal" href="{{ url_for('professional_project', slug=project.slug) }}">
+        <div class="project-tile__header project-tile__header--arrow"><b>↗</b></div>
+        {{ project_widget(project) }}
+        <div class="project-tile__content"><p>{{ project.category }}</p><h3>{{ project.name }}</h3><span>{{ project.short }}</span></div>
+    </a>
+{% endmacro %}
+
+{% macro side_project_card(project, icon) %}
+    <a class="project-tile project-tile--small project-tile--side reveal" href="{{ project.url }}">
+        <div class="project-tile__header"><span>Side project</span><b>↗</b></div>
+        <div class="project-widget project-widget--photo">{% if project.image %}<img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.name }} project image">{% else %}<span class="fa-solid {{ icon }}" aria-hidden="true"></span>{% endif %}</div>
+        <div class="project-tile__content"><p>{{ project.type }}</p><h3>{{ project.name }}</h3><span>{{ project.description }}</span></div>
+    </a>
+{% endmacro %}
+
+{% block maincontent %}
+<header class="work-hero shell reveal">
+    <h1>Here are some things I've built.</h1>
+</header>
+
+<main class="project-dashboard shell">
+    <section class="project-section project-section--flagship">
+        <div class="project-section__heading"><div><p class="eyebrow">The big two</p><h2>Flagship platforms</h2></div></div>
+        <div class="featured-projects" data-project-carousel>
+            {% for project in professional_projects[:2] %}
+            <a class="project-tile project-tile--featured reveal" href="{{ url_for('professional_project', slug=project.slug) }}">
+                <div class="project-tile__header"><span>Featured project</span><b>↗</b></div>
+                <div class="project-tile__brand">{% if project.logo %}<img src="{{ url_for('static', filename=project.logo) }}" alt="{{ project.name }} logo">{% endif %}</div>
+                <div class="project-tile__content"><p>{{ project.category }}</p><h2>{{ project.name }}</h2><span>{{ project.short }}</span></div>
+                <div class="project-tile__tags">{% for tag in project.tags[:3] %}<span>{{ tag }}</span>{% endfor %}</div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-section__heading"><div><p class="eyebrow">Built for day-to-day work</p><h2>Business &amp; operations tools</h2></div></div>
+        <div class="project-section__grid" data-project-carousel>{% for project in professional_projects[2:5] %}{{ compact_card(project) }}{% endfor %}</div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-section__heading"><div><p class="eyebrow">Keeping things moving</p><h2>Automation &amp; reliability</h2></div></div>
+        <div class="project-section__grid project-section__grid--two" data-project-carousel>{{ compact_card(professional_projects[5]) }}{{ compact_card(professional_projects[7]) }}</div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-section__heading"><div><p class="eyebrow">Where software gets smarter</p><h2>AI &amp; machine learning</h2></div></div>
+        <div class="project-section__grid" data-project-carousel>
+            {{ compact_card(professional_projects[6]) }}
+            {{ side_project_card(archive_projects[1], 'fa-brain') }}
+            {{ side_project_card(archive_projects[0], 'fa-language') }}
+        </div>
+    </section>
+    <section class="project-section project-section--creative">
+        <div class="project-section__heading"><div><p class="eyebrow">Experiments, competitions &amp; early builds</p><h2>Creative &amp; foundational work</h2></div></div>
+        <div class="creative-project-grid" data-project-carousel>{% for project in archive_projects[2:] %}<a href="{{ project.url }}"><img src="{{ url_for('static', filename=project.image) }}" alt="" loading="lazy"><div><span>{{ project.type }}</span><strong>{{ project.name }}</strong><p>{{ project.description }}</p></div><b>↗</b></a>{% endfor %}</div>
+    </section>
+</main>
+{% endblock %}

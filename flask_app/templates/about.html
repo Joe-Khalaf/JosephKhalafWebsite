@@ -1,0 +1,119 @@
+{% extends "shared/layout.html" %}
+{% block title %}About — Joseph Khalaf{% endblock %}
+{% block extracss %}<link rel="stylesheet" href="{{ url_for('static', filename='main/css/about.css') }}">{% endblock %}
+
+{% block maincontent %}
+<article class="about-page">
+  <nav class="about-progress" aria-label="About page chapters">
+    <a href="#hello" class="is-active" aria-label="Introduction"></a>
+    <a href="#gymnastics" aria-label="Gymnastics"></a>
+    <a href="#music" aria-label="Music"></a>
+    <a href="#lucky" aria-label="Lucky"></a>
+    <a href="#movies" aria-label="Movies"></a>
+    <a href="#art" aria-label="Art"></a>
+    <a href="#garage" aria-label="Cars and motorcycles"></a>
+    <a href="#life" aria-label="Life lately"></a>
+  </nav>
+
+  <section class="about-hero" id="hello" data-chapter>
+    <div class="about-shell" data-reveal>
+      <p class="about-kicker">A little more about me</p>
+      <h1>Hi again. I'm Joe.</h1>
+      <p>I spend plenty of time building software, but that is only one part of me. Keep scrolling for the music, movies, art, people, and stories that fill in the rest.</p>
+      <a href="#gymnastics" class="about-scroll">Start scrolling <span>↓</span></a>
+    </div>
+  </section>
+
+  <section class="about-chapter" id="gymnastics" data-chapter>
+    <div class="about-shell chapter-layout">
+      <header class="chapter-intro" data-reveal><span>01</span><p class="about-kicker">A past life</p><h2>I grew up in a gym.</h2><p>I spent years competing as a Level 10 gymnast. It has been a while, but the patience required to learn a difficult skill never really left me.</p></header>
+      <div class="gymnastics-gallery">
+        <figure class="feature-photo about-media" data-reveal><img src="{{ url_for('static', filename='main/images/gymnastics.jpg') }}" alt="Joe winning first place at a gymnastics competition"><figcaption>That little guy in the middle is me, taking first.</figcaption></figure>
+        <div class="gymnastics-clips">
+          <figure class="gymnastics-clip" data-reveal><video muted loop playsinline preload="metadata" aria-label="Joe performing on the rings"><source src="{{ url_for('static', filename='main/images/gymnastics-rings.mp4') }}" type="video/mp4"></video><figcaption>Rings</figcaption></figure>
+          <figure class="gymnastics-clip" data-reveal><video muted loop playsinline preload="metadata" aria-label="Joe performing on the high bar"><source src="{{ url_for('static', filename='main/images/gymnastics-highbar.mp4') }}" type="video/mp4"></video><figcaption>High bar</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-chapter about-chapter--tint" id="music" data-chapter>
+    <div class="about-shell">
+      <header class="chapter-heading" data-reveal><div><span>02</span><p class="about-kicker">Always playing</p><h2>Five albums I keep coming back to.</h2></div><p>This ranking changes more often than I would like to admit, but these records have held up.</p></header>
+      <div class="album-grid">
+        {% set albums = [
+          ('When We Were Friends', 'The Backseat Lovers', 'WhenWeWereFriendsCover.jpg'),
+          ('Care For Me', 'Saba', 'CareForMeCover.jpg'),
+          ('Landmark', 'Hippo Campus', 'Landmark Album Cover.jpg'),
+          ("I Didn't Mean to Haunt You", 'Quadeca', 'idmthyCover.png'),
+          ('Songs in the Key of Life', 'Stevie Wonder', 'SongsInTheKeyOfLifeCover.jpg')
+        ] %}
+        {% for title, artist, image in albums %}<figure class="album-card about-media" data-reveal><div><img src="{{ url_for('static', filename='main/images/' + image) }}" alt="{{ title }} album cover" loading="lazy"><b>0{{ loop.index }}</b></div><figcaption><strong>{{ title }}</strong><span>{{ artist }}</span></figcaption></figure>{% endfor %}
+      </div>
+      <div class="vinyl-feature" data-reveal>
+        <div class="vinyl-showcase">
+          <figure class="vinyl-cycle" aria-label="Joe's vinyl collection stacking up one record at a time">
+            <img src="{{ url_for('static', filename='main/images/vinyl-0.jpg') }}" data-vinyl-cycle data-frame-template="{{ url_for('static', filename='main/images/vinyl-__FRAME__.jpg') }}" alt="A growing stack of records from Joe's vinyl collection">
+            <span aria-hidden="true">19 records · on repeat</span>
+          </figure>
+          <figure class="vinyl-player-photo about-media"><img src="{{ url_for('static', filename='main/images/vinyl-player.jpeg') }}" alt="Joe's record player and vinyl collection" loading="lazy"></figure>
+        </div>
+        <div><p class="about-kicker">More than a playlist</p><h3>I collect vinyl, too.</h3><p>There is something nice about choosing a record, putting it on, and listening all the way through. My setup and collection are still growing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-chapter" id="lucky" data-chapter>
+    <div class="about-shell chapter-layout">
+      <header class="chapter-intro" data-reveal><span>03</span><p class="about-kicker">The household celebrity</p><h2>This is Lucky.</h2><p>He is deeply committed to naps, snacks, and turning every stretch into a full-body sploot.</p></header>
+      <div class="lucky-mosaic">
+        {% for image in ['lucky2.jpg','lucky3.jpg','lucky1.jpg','lucky4.jpg'] %}<figure class="about-media" data-reveal><img src="{{ url_for('static', filename='main/images/' + image) }}" alt="Lucky the dog" loading="lazy"></figure>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-chapter about-chapter--dark" id="movies" data-chapter>
+    <div class="about-shell">
+      <header class="chapter-heading" data-reveal><div><span>04</span><p class="about-kicker">Movie night</p><h2>My top three movies.</h2></div><p>Ask me again next month and I may defend a completely different list.</p></header>
+      <div class="movie-grid">
+        {% for rank, medal, title, image in [('1st','🥇','Fight Club','FightClub.jpg'),('2nd','🥈','Good Will Hunting','GoodWillHunting.jpg'),('3rd','🥉','Interstellar','Interstellar.jpg')] %}<figure class="movie-card about-media" data-reveal><div class="movie-poster"><img src="{{ url_for('static', filename='main/images/' + image) }}" alt="{{ title }} poster" loading="lazy"><span class="movie-medal" aria-label="{{ rank }} place">{{ medal }} <b>{{ rank }}</b></span></div><figcaption><strong>{{ title }}</strong></figcaption><div class="movie-podium" aria-hidden="true">{{ loop.index }}</div></figure>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-chapter" id="art" data-chapter>
+    <div class="about-shell">
+      <header class="chapter-heading" data-reveal><div><span>05</span><p class="about-kicker">Making things by hand</p><h2>I like to draw, too.</h2></div><p>No compiler, no deployment, and usually no plan. It is a nice change of pace.</p></header>
+      <div class="art-grid">
+        {% for title, image in [('A coffee shop inspired by Downtown Rochester','Coffee_Shop.png'),('A castle from a little too much Minecraft','MC_Castle.png'),('Friends walking around MSU','MSUWalk.png')] %}<figure class="art-card about-media" data-reveal><div><img src="{{ url_for('static', filename='main/images/' + image) }}" alt="{{ title }}" loading="lazy"></div><figcaption>{{ title }}</figcaption></figure>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-chapter garage-chapter" id="garage" data-chapter>
+    <div class="about-shell">
+      <header class="chapter-heading" data-reveal><div><span>06</span><p class="about-kicker">Out in the garage</p><h2>Cars, motorcycles, and the fun way to get somewhere.</h2></div><p>I drive a 2006 Pontiac Solstice and ride a 2009 Honda Rebel 250. Neither is the most practical way to get somewhere, which is partly the point.</p></header>
+      <div class="garage-gallery">
+        <figure class="about-media garage-photo garage-photo--hero" data-reveal><img src="{{ url_for('static', filename='main/images/solstice-front.jpeg') }}" alt="Joe's 2006 Pontiac Solstice from the front" loading="lazy"></figure>
+        <figure class="about-media garage-photo" data-reveal><img src="{{ url_for('static', filename='main/images/solstice-top-down.jpeg') }}" alt="Joe's Pontiac Solstice with the top down" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-chapter about-chapter--tint" id="life" data-chapter>
+    <div class="about-shell">
+      <header class="chapter-heading" data-reveal><div><span>07</span><p class="about-kicker">Life lately</p><h2>A few favorites from the camera roll.</h2></div></header>
+      <div class="life-grid">
+        {% for image in ['SuperCool.jpg','dapper-joe-and-matt.jpeg','FishPic.jpg','bama-picture.png','JankTop.jpg','Carried_Christmas.jpeg','Cool_Sunglasses.jpeg','Rope_Swing.jpeg','Ski_Shirt.jpeg'] %}<figure class="about-media" data-reveal><img src="{{ url_for('static', filename='main/images/' + image) }}" alt="A moment from Joe's life" loading="lazy"></figure>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-outro">
+    <div class="about-shell" data-reveal><p class="about-kicker">That is enough about me</p><h2>Thanks for sticking around.</h2><p>If you came here for the software, I have plenty of that too.</p><a href="{{ url_for('projects') }}">See what I've built →</a></div>
+  </section>
+</article>
+
+<dialog class="about-lightbox" aria-label="Expanded image"><button type="button" aria-label="Close image">×</button><img src="" alt=""></dialog>
+{% endblock %}
+{% block extrajs %}<script src="{{ url_for('static', filename='main/js/about.js') }}"></script>{% endblock %}

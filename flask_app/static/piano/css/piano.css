@@ -1,0 +1,132 @@
+
+.paino {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;    
+  justify-self: center;
+  margin: 0 auto;
+  height: auto;
+  background-color: #FFF;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  padding: 50px 50px;
+}
+
+.piano p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#piano-container {
+  position: relative;
+  width: 100%; /* Adjust the width based on your piano size */
+  height: auto;
+}
+
+#piano-title {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  color: white;
+  transition: opacity 2s ease-in-out;
+}
+
+/* Piano Screen */
+#piano {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  height: 400px;    
+  width: 600px; /* Adjust width to fit keys */
+  margin: 0 auto;
+  background-color: #3F3F3F;
+  border-radius:25px;
+  transition: opacity 2s ease-in-out;
+}
+
+#awakening-image {
+  text-align: center;
+}
+
+#awakening-image img {
+  width: 80%; /* Adjust as needed */
+  height: auto;
+}
+
+.key-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: gray;
+  visibility: hidden;
+}
+
+.white-key {
+  position: relative;
+  margin-top: 195px;
+  width: 50px;
+  height: 200px;
+  border: 1px solid black;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.black-key {
+  position: relative;
+  margin-top: 195px;
+  width: 30px;
+  height: 120px;
+  background-color: black;
+  position: absolute;
+  z-index: 2;
+  margin-left: 50px;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.white-key:hover {
+  background-color: lightgray;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  scale: 95%;
+}
+
+.black-key:hover {
+  background-color: #333;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  scale: 95%;
+} 
+
+#keyW { left: 35px; }
+#keyE { left: 85px; }
+#keyT { left: 185px; }
+#keyY { left: 235px; }
+#keyU { left: 285px; }
+#keyO { left: 385px; }
+#keyP { left: 435px; }
+
+.hidden {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
+.pressed {
+  transform: translateY(5px);
+  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+}

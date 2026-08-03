@@ -1,0 +1,26 @@
+.navbar{height:76px;position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(24,69,59,.1)}
+.navbar__container{width:min(1180px,calc(100% - 48px));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between}
+#navbar__logo{display:flex;align-items:center;width:255px;height:54px;overflow:hidden;text-decoration:none}
+#navbar__logo img{display:block;width:270px;height:auto;transform:translate(-8px,1px) scale(1.08);transform-origin:center}
+.navbar__menu{display:flex;align-items:center;gap:7px;list-style:none}
+.navbar__links{display:flex;align-items:center;justify-content:center;padding:10px 13px;text-decoration:none;font-size:.9rem;font-weight:600;color:inherit}
+.navbar__links:hover{color:#0b9a6d}
+.navbar__linkedin{font-size:1.35rem}
+.linkedin__logo{display:inline-flex}
+.linkedin__text{display:none}
+.navbar__toggle{display:none;border:0;background:none;padding:8px}
+.navbar__toggle .bar{display:block;width:24px;height:2px;background:#18453b;margin:5px;transition:.25s}
+@media(max-width:760px){
+  .navbar__container{width:calc(100% - 28px)}
+  #navbar__logo{width:220px;height:50px}
+  #navbar__logo img{width:235px;transform:translate(-8px,1px) scale(1.08)}
+  .navbar__toggle{display:block}
+  .navbar__menu{position:absolute;top:76px;left:0;right:0;background:#fff;display:flex;flex-direction:column;align-items:stretch;padding:16px 20px 22px;border-bottom:1px solid rgba(24,69,59,.14);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.25s}
+  .navbar__menu.active{opacity:1;visibility:visible;transform:none}
+  .navbar__links{text-align:center;padding:13px}
+  .linkedin__text{display:block}
+  .linkedin__logo{display:none}
+  .navbar__toggle.is-active .bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .navbar__toggle.is-active .bar:nth-child(2){opacity:0}
+  .navbar__toggle.is-active .bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}

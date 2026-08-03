@@ -1,0 +1,46 @@
+{% extends "shared/layout.html" %}
+{% block maincontent %}
+<section class="home-intro shell">
+    <div class="home-intro__photo reveal">
+        <img src="{{ url_for('static', filename='main/images/Senior Photo.JPG') }}" alt="Joseph Khalaf" fetchpriority="high">
+    </div>
+    <div class="home-intro__copy reveal">
+        <p class="eyebrow"><span class="status-dot"></span> Software Engineer · Bazco Enterprises · Metro Detroit</p>
+        <h1>Hi, I'm Joe.</h1>
+        <p>I like building software that solves problems people actually run into. Lately, that has meant connected fuel systems, retail analytics, and plenty of useful automation.</p>
+        <div class="button-row">
+            <a class="button button--primary" href="{{ url_for('projects') }}">See what I've built <span>→</span></a>
+            <a class="home-text-link" href="{{ url_for('about') }}">Get to know me</a>
+        </div>
+    </div>
+    <a class="scroll-cue" href="#currently-building"><span>Keep scrolling</span><b>↓</b></a>
+</section>
+
+<section class="home-glimpse" id="currently-building">
+    <div class="shell home-glimpse__inner reveal">
+        <p class="eyebrow">What I've been working on</p>
+        <h2>I enjoy making complicated work feel simple.</h2>
+        <p>Most of my work lives where software meets day-to-day operations. I build IoT platforms that listen to equipment in the field, data tools that turn messy information into something useful, and full-stack applications that replace spreadsheets and guesswork.</p>
+        <div class="home-capabilities" aria-label="Areas of work">
+            <span>IoT platforms</span>
+            <span>Full-stack products</span>
+            <span>AI &amp; data analytics</span>
+            <span>Business automation</span>
+        </div>
+        <a class="home-text-link" href="{{ url_for('projects') }}">Take a look at what I've built →</a>
+    </div>
+</section>
+
+<section class="home-personal shell reveal">
+    <div class="home-personal__copy">
+        <p class="eyebrow">Away from work</p>
+        <h2>I promise I do more than stare at a screen.</h2>
+        <p>I'm usually listening to an album front to back, drawing something, watching a movie, or spending time with friends. The About page is where I keep the less technical parts of my life.</p>
+        <a class="home-text-link" href="{{ url_for('about') }}">Get to know me a little better →</a>
+    </div>
+    <div class="home-personal__photos" aria-hidden="true">
+        <img src="{{ url_for('static', filename='main/images/MSUWalk.png') }}" alt="" loading="lazy">
+        <img src="{{ url_for('static', filename='main/images/Rope_Swing.jpeg') }}" alt="" loading="lazy">
+    </div>
+</section>
+{% endblock %}
