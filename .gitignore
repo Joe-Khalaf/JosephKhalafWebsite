@@ -28,3 +28,6 @@ instance/
 
 # Frontend dependencies, if introduced later
 node_modules/
+
+# Local deployment reference
+LOCAL_DEPLOYMENT_GUIDE.md

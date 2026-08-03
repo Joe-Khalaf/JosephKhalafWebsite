@@ -20,7 +20,7 @@
 .album-card b{transition:transform .35s ease}.album-card:hover b{transform:rotate(8deg) scale(1.12)}
 .art-card>div{transition:background .3s ease}.art-card:hover>div{background:#e9f4ee}
 .about-progress a{transition:height .3s ease,background .3s ease,transform .3s ease}.about-progress a:hover{transform:scale(1.5)}
-.about-lightbox[open]{animation:about-lightbox-in .25s ease}.about-lightbox button{transition:transform .25s ease}.about-lightbox button:hover{transform:rotate(90deg)}
+.about-lightbox[open]{display:grid;place-items:center;width:fit-content;margin:auto;animation:about-lightbox-in .25s ease}.about-lightbox[open] img{margin-inline:auto}.about-lightbox button{transition:transform .25s ease}.about-lightbox button:hover{transform:rotate(90deg)}
 @keyframes about-lightbox-in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
 .lucky-mosaic{grid-template-columns:1.1fr .7fr .7fr;grid-template-rows:210px 210px}.lucky-mosaic figure:last-child{position:relative;visibility:visible;grid-column:2/4}
 @media(max-width:520px){.lucky-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:220px 150px 150px}.lucky-mosaic figure:last-child{grid-column:1/3}}
