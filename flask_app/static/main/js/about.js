@@ -59,11 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let loaded = false;
     let visible = false;
     let loadingPromise = null;
-    const preload = () => loadingPromise || (loadingPromise = Promise.all(frames.map((source) => new Promise((resolve) => {
-      const image = new Image();
-      image.onload = image.onerror = resolve;
-      image.src = source;
-    }))).then(() => { loaded = true; }));
+    const preload = () => {
+      if (loadingPromise) return loadingPromise;
+      const frameLoads = frames.map((source, index) => new Promise((resolve) => {
+        const image = new Image();
+        image.fetchPriority = index < 6 ? 'high' : 'auto';
+        image.decoding = 'async';
+        image.onload = image.onerror = resolve;
+        image.src = source;
+      }));
+      loadingPromise = Promise.all(frameLoads.slice(0, 5)).then(() => { loaded = true; });
+      Promise.all(frameLoads).catch(() => {});
+      return loadingPromise;
+    };
     const stop = () => { window.clearInterval(timer); timer = null; };
     const start = async () => {
       if (reduceMotion || timer) return;
@@ -80,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         visible ? start() : stop();
       });
     }, { rootMargin: '250px 0px', threshold: 0.05 });
+    preload();
     cycleObserver.observe(display);
     document.addEventListener('visibilitychange', () => document.hidden ? stop() : (visible && start()));
   });
