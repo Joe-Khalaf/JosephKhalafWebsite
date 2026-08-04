@@ -22,22 +22,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { rootMargin: '-35% 0px -55% 0px' });
   document.querySelectorAll('[data-chapter]').forEach((chapter) => chapterObserver.observe(chapter));
 
-  const clipObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const video = entry.target;
-      if (entry.isIntersecting && !reduceMotion) {
-        video.play().then(() => video.closest('.gymnastics-clip').classList.add('is-playing')).catch(() => {});
+  document.querySelectorAll('.gymnastics-clip video').forEach((video) => {
+    const clip = video.closest('.gymnastics-clip');
+    const toggleVideo = () => {
+      if (!video.dataset.loaded) {
+        const source = video.querySelector('source[data-src]');
+        source.src = source.dataset.src;
+        video.dataset.loaded = 'true';
+        video.load();
+      }
+      if (video.paused) {
+        video.play().then(() => {
+          clip.classList.add('is-playing');
+          clip.setAttribute('aria-label', `Pause ${video.getAttribute('aria-label')}`);
+        }).catch(() => {});
       } else {
         video.pause();
-        video.closest('.gymnastics-clip').classList.remove('is-playing');
+        clip.classList.remove('is-playing');
+        clip.setAttribute('aria-label', `Play ${video.getAttribute('aria-label')}`);
       }
-    });
-  }, { threshold: 0.65 });
-  document.querySelectorAll('.gymnastics-clip video').forEach((video) => {
-    clipObserver.observe(video);
-    video.closest('.gymnastics-clip').addEventListener('click', () => {
-      if (video.paused) video.play().then(() => video.closest('.gymnastics-clip').classList.add('is-playing')).catch(() => {});
-      else { video.pause(); video.closest('.gymnastics-clip').classList.remove('is-playing'); }
+    };
+    clip.addEventListener('click', toggleVideo);
+    clip.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleVideo();
+      }
     });
   });
 
@@ -99,14 +109,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightbox = document.querySelector('.about-lightbox');
   const lightboxImage = lightbox.querySelector('img');
   const closeButton = lightbox.querySelector('button');
+  let lightboxRequest = 0;
   document.querySelectorAll('.about-media img').forEach((image) => {
     image.tabIndex = 0;
     image.setAttribute('role', 'button');
     image.setAttribute('aria-label', `${image.alt || 'Image'} — open larger`);
     const openImage = () => {
-      lightboxImage.src = image.currentSrc || image.src;
-      lightboxImage.alt = image.alt;
-      lightbox.showModal();
+      const source = image.currentSrc || image.src;
+      const request = ++lightboxRequest;
+      const preload = new Image();
+      let displayed = false;
+      const displayImage = () => {
+        if (displayed || request !== lightboxRequest) return;
+        displayed = true;
+        lightboxImage.src = source;
+        lightboxImage.alt = image.alt;
+        if (!lightbox.open) lightbox.showModal();
+      };
+      preload.addEventListener('load', displayImage, { once: true });
+      preload.addEventListener('error', displayImage, { once: true });
+      preload.src = source;
+      if (preload.complete) displayImage();
     };
     image.addEventListener('click', openImage);
     image.addEventListener('keydown', (event) => {
@@ -116,8 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  closeButton.addEventListener('click', () => lightbox.close());
+  closeButton.addEventListener('click', () => {
+    lightboxRequest += 1;
+    lightbox.close();
+  });
   lightbox.addEventListener('click', (event) => {
-    if (event.target === lightbox) lightbox.close();
+    if (event.target === lightbox) {
+      lightboxRequest += 1;
+      lightbox.close();
+    }
   });
 });

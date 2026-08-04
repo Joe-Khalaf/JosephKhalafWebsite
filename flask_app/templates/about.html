@@ -29,8 +29,8 @@
       <div class="gymnastics-gallery">
         <figure class="feature-photo about-media" data-reveal><img src="{{ url_for('static', filename='main/images/gymnastics.jpg') }}" alt="Joe winning first place at a gymnastics competition"><figcaption>That little guy in the middle is me, taking first.</figcaption></figure>
         <div class="gymnastics-clips">
-          <figure class="gymnastics-clip" data-reveal><video muted loop playsinline preload="metadata" aria-label="Joe performing on the rings"><source src="{{ url_for('static', filename='main/images/gymnastics-rings.mp4') }}" type="video/mp4"></video><figcaption>Rings</figcaption></figure>
-          <figure class="gymnastics-clip" data-reveal><video muted loop playsinline preload="metadata" aria-label="Joe performing on the high bar"><source src="{{ url_for('static', filename='main/images/gymnastics-highbar.mp4') }}" type="video/mp4"></video><figcaption>High bar</figcaption></figure>
+          <figure class="gymnastics-clip" data-reveal tabindex="0" role="button" aria-label="Play Joe's rings routine"><video muted loop playsinline preload="none" aria-label="Joe performing on the rings"><source data-src="{{ url_for('static', filename='main/images/gymnastics-rings.mp4') }}" type="video/mp4"></video><figcaption>Rings</figcaption></figure>
+          <figure class="gymnastics-clip" data-reveal tabindex="0" role="button" aria-label="Play Joe's high bar routine"><video muted loop playsinline preload="none" aria-label="Joe performing on the high bar"><source data-src="{{ url_for('static', filename='main/images/gymnastics-highbar.mp4') }}" type="video/mp4"></video><figcaption>High bar</figcaption></figure>
         </div>
       </div>
     </div>
@@ -94,7 +94,10 @@
       <header class="chapter-heading" data-reveal><div><span>06</span><h2>Cars, motorcycles, and the fun way to get somewhere.</h2></div><p>I drive a 2006 Pontiac Solstice and ride a 2009 Honda Rebel 250. Neither is the most practical way to get somewhere, which is partly the point.</p></header>
       <div class="garage-gallery">
         <figure class="about-media garage-photo garage-photo--hero" data-reveal><img src="{{ url_for('static', filename='main/images/solstice-front.jpeg') }}" alt="Joe's 2006 Pontiac Solstice from the front" loading="lazy"></figure>
+        <figure class="about-media garage-photo garage-photo--bike-wide" data-reveal><img src="{{ url_for('static', filename='main/images/rebel-1.jpg') }}" alt="Joe's blue 2009 Honda Rebel 250 at sunset" loading="lazy"></figure>
         <figure class="about-media garage-photo" data-reveal><img src="{{ url_for('static', filename='main/images/solstice-top-down.jpeg') }}" alt="Joe's Pontiac Solstice with the top down" loading="lazy"></figure>
+        <figure class="about-media garage-photo garage-photo--bike" data-reveal><img src="{{ url_for('static', filename='main/images/rebel-2.jpg') }}" alt="Front view of Joe's 2009 Honda Rebel 250" loading="lazy"></figure>
+        <figure class="about-media garage-photo garage-photo--bike" data-reveal><img src="{{ url_for('static', filename='main/images/rebel-3.jpg') }}" alt="Side view of Joe's 2009 Honda Rebel 250" loading="lazy"></figure>
       </div>
     </div>
   </section>
