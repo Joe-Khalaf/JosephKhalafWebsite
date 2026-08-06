@@ -316,7 +316,11 @@ def professional_project(slug):
 
 
 @app.route('/resume')
-def resume(): return render_template('resume.html')
+def resume(): return render_template('resume_page.html')
+
+
+@app.route('/resume/pdf')
+def resume_pdf(): return render_template('resume_print.html')
 
 @app.route('/piano')
 def piano(): return render_template('piano.html')

@@ -1,14 +1,7 @@
-{% extends "shared/layout.html" %}
-
-{% block extracss %}
-<link rel="stylesheet" href="../static/main/css/resume.css">
-{% endblock %}
-
-{% block maincontent %}
 <div class="resume">
     <header class="header">
         <h1>Joseph Khalaf</h1>
-        <p>Troy, MI | jznkhalaf@gmail.com | (248) 854-6962 | www.khalaf.net | linkedin.com/in/joseph-khalaf</p>
+        <p>Troy, MI | jznkhalaf@gmail.com | (248) 854-6962 | khalaf.net | linkedin.com/in/joseph-khalaf</p>
     </header>
 
     <section class="education">
@@ -20,34 +13,35 @@
     </section>
 
     <section class="experience">
-        <h2>Experience</h2>
+        <h2>Professional Experience</h2>
         <div class="content">
             <div class="job">
-                <p><strong>Bazco Oil Company / Chillbox Convenience Stores</strong> <span class="right">Present</span></p>
+                <p><strong>Bazco Enterprises | Bazco Oil Company / Chillbox Convenience Stores</strong> <span class="right">Aug 2025 – Present</span></p>
                 <p><em>Software Engineer</em></p>
                 <ul>
-                    <li>Build and own internal products spanning IoT telemetry, real-time retail analytics, operational reporting, and workflow automation.</li>
-                    <li>Created TankVision to connect field devices with automatic tank gauges and surface fuel levels, compliance data, alerts, analytics, and reports for smarter dispatch decisions.</li>
-                    <li>Developed Chillbox Toolbox to turn Verifone Commander transaction logs into actionable views of loyalty, loss prevention, sales, cashier performance, and fuel pricing across sites.</li>
-                    <li>Automated recurring accounting and operational workflows with spreadsheet tooling, GitHub Actions, and Microsoft Power Automate.</li>
+                    <li>Built TankVision, a React, FastAPI, PostgreSQL, and Redis IoT platform that connects Raspberry Pi and ESP32-S3 agents to automatic tank gauges for live inventory, compliance, alerts, reporting, and fuel-dispatch forecasting.</li>
+                    <li>Created Chillbox Toolbox with React, Flask, and PostgreSQL to transform Verifone transaction logs into near-real-time loyalty, loss-prevention, sales, cashier-performance, and fuel-pricing analytics across stores.</li>
+                    <li>Delivered AirWare, a React and Flask platform that monitors air and vacuum machines, identifies equipment and collection needs, and supports mobile field workflows, alerts, and performance analytics.</li>
+                    <li>Automated recurring accounting and operational work with React, Python, Azure Functions, pandas, openpyxl, GitHub Actions, and Power Automate, turning varied exports into validated workbooks and eliminating repetitive data entry, integrations, and notifications.</li>
+                    <li>Developed a Flask and PostgreSQL storage-lot management platform with an interactive space map, customer and rental records, payment tracking, automated reminders, and reporting.</li>
                 </ul>
             </div>
             <div class="job">
-                <p><strong>Little Caesars</strong> <span class="right">2025</span></p>
+                <p><strong>Little Caesars</strong> <span class="right">May 2025 – Aug 2025</span></p>
                 <p><em>Backend Software Engineering Intern | Marketing Technologies</em></p>
                 <ul>
-                    <li>Created service level objectives (SLOs) using Nobl9 and Grafana to monitor reliability and performance of the fundraising website by logging custom metrics throughout the existing, large codebase. </li>
-                    <li>Contributed to CI/CD pipelines using Azure DevOps and YAML, streamlining deployments and improving release reliability.</li>
-                    <li>Wrote extensive unit tests to improve test coverage for the repository and prevent regression issues.</li>
+                    <li>Added structured logging and custom operational metrics to an existing C# backend, then used KQL, Grafana, and Nobl9 to monitor service-level objectives, latency, traffic, errors, uptime, and application performance.</li>
+                    <li>Contributed to Azure DevOps CI/CD pipelines using YAML, helping improve the reliability and consistency of application releases.</li>
+                    <li>Expanded unit-test coverage across the codebase to validate new behavior, prevent regressions, and support safer changes to existing services.</li>
+                    <li>Worked within a large Scrum team through sprint planning, daily standups, code reviews, technical discussions, and collaboration across an established production codebase.</li>
                 </ul>
             </div>
             <div class="job">
-                <p><strong>General Motors</strong> <span class="right">January 2025 – May 2025</span></p>
-                <p><em>Computer Science Capstone</em></p>
+                <p><strong>General Motors | Michigan State University Capstone</strong> <span class="right">Jan 2025 – May 2025</span></p>
+                <p><em>Computer Science Capstone</em> <span class="right">East Lansing, MI</span></p>
                 <ul>
-                    <li> Developed a production-ready web dashboard via React, Python, and Flask that used AI and data analysis to detect anomalies in GM’s waste management system for their manufacturing plants.</li>
-                    <li>Led team workflow by setting weekly goals, reviewing code, and acting as the main liaison with GM, including leading client meetings and the final project presentation.</li>
-                    <li>Created documentation to support a smooth handoff to GM and long-term maintainability.</li>
+                    <li>Led development of a React and Flask dashboard that helped GM assembly plants analyze waste data, detect anomalies, and track progress toward sustainability goals.</li>
+                    <li>Coordinated requirements and weekly reviews with GM stakeholders while guiding planning, code review, documentation, final presentation, and project handoff.</li>
                 </ul>
             </div>
         </div>
@@ -57,50 +51,36 @@
         <h2>Projects</h2>
         <div class="content">
             <div class="project">
-                <p><strong>SpartaHack 8</strong> – E. Lansing, MI <span class="right">Jan 2023</span></p>
+                <p><strong>Connect-4 AI | 1st Place Project</strong> <span class="right">Sep 2024 – Dec 2024</span></p>
                 <ul>
-                    <li>Programmed an AI to detect the location of potholes based on an image of a road using TensorFlow.</li>
+                    <li>Designed and compared reinforcement learning, CNN, MLP, SVM, decision-tree, and Minimax agents using PyTorch, TensorFlow, and scikit-learn.</li>
                 </ul>
             </div>
             <div class="project">
-                <p><strong>MHacks 16</strong> – Ann Arbor, MI <span class="right">Nov 2023</span></p>
+                <p><strong>Communicate.AI | MHacks 16</strong> <span class="right">Nov 2023</span></p>
                 <ul>
-                    <li>Developed a real-time speech-to-text translation system overlaying subtitles below the speaker using computer vision and augmented reality to simplify communication with other languages.</li>
+                    <li>Built a real-time speech-to-text translation prototype that used computer vision and augmented reality to display translated subtitles beneath a speaker.</li>
                 </ul>
             </div>
             <div class="project">
-                <p><strong>Connect-4 AI | 1st Place Project</strong> – E. Lansing, MI <span class="right">Sep 2024 – Dec 2024</span></p>
+                <p><strong>Pothole Detection | SpartaHack 8</strong> <span class="right">Jan 2023</span></p>
                 <ul>
-                    <li>Designed and trained AI models to play Connect-4 using Reinforcement Learning, CNN, MLP, SVM, Decision Tree, and Minimax using various python libraries such as scikit-learn, PyTorch, and TensorFlow.</li>
+                    <li>Trained a TensorFlow computer-vision model to identify and locate potholes from road imagery.</li>
                 </ul>
             </div>
             <div class="project">
-                <p><strong>Robofest | 3rd Place at Worlds</strong> – Troy, MI <span class="right">Sep 2018 – May 2022</span></p>
+                <p><strong>Robofest | 3rd Place Worldwide</strong> <span class="right">Sep 2018 – May 2022</span></p>
                 <ul>
-                    <li>Designed and coded robots in C to compete in autonomous games while planning team building events, managing team projects, and teaching other students the basics of coding in C.</li>
+                    <li>Designed and programmed autonomous robots in C, led development work, and taught younger students foundational programming concepts.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="leadership">
-        <h2>Leadership & Club Activity</h2>
-        <ul>
-            <li>Robofest Programming Lead, Robotics Club – Troy Athens Highschool <span class="right">Sep 2019 – May 2024</span></li>
-            <li>Member, AI Club – Michigan State University <span class="right">Sep 2022 – May 2025</span></li>
-            <li>Member – SJP MSU – Michigan State University <span class="right">Sep 2024 – May 2025</span></li>
-        </ul>
-    </section>
-
     <section class="skills">
-        <h2>Skills</h2>
-        <p>Programming Languages: Python, C++, C#, C, JavaScript, TypeScript, Java, ARM Assembly, SQL, HTML, CSS</p>
-        <p>Frameworks & Tools: React, PyTorch, TensorFlow, scikit-learn, Flask, Docker, YAML, Git, Unix, Android Studio, MongoDB, MySQL, Grafana, Nobl9, CI/CD Pipelines, Azure DevOps</p>
+        <h2>Technologies</h2>
+        <p><strong>Languages:</strong> Python, TypeScript, JavaScript, C#, C++, C, SQL, HTML/CSS</p>
+        <p><strong>Frameworks &amp; Data:</strong> React, FastAPI, Flask, SQLAlchemy, PostgreSQL, Redis, SQLite, pandas, PyTorch, TensorFlow, scikit-learn</p>
+        <p><strong>Platforms &amp; Tools:</strong> Azure, Docker, Proxmox, GitHub Actions, Git, Linux, Raspberry Pi, ESP32-S3, PlatformIO, Grafana, Nobl9, KQL</p>
     </section>
 </div>
-
-<div class="resume__button__container">
-    <button class="resume__btn"><a href="/static/main/files/Joseph_Khalaf_Resume.pdf" download>Download Resume as PDF</a></button>
-</div>
-
-{% endblock %}

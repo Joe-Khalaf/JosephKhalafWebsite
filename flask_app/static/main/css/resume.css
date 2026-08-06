@@ -1,98 +1,42 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background: #f4f4f4;
+.resume-page{padding:32px 24px 46px;background:#f4f4f4}
+.resume,.resume *{box-sizing:border-box}
+.resume{width:min(900px,100%);margin:0 auto;padding:28px 38px;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1);color:#292929;font-family:Arial,sans-serif;font-size:14px;line-height:1.35}
+.resume .header{text-align:center;margin-bottom:18px}
+.resume .header h1{margin:0;color:#18453b;font-family:Arial,sans-serif;font-size:30px;line-height:1.1;letter-spacing:0}
+.resume .header p{margin:6px 0 0;font-size:12px;line-height:1.35}
+.resume section{margin-bottom:16px}
+.resume section:last-child{margin-bottom:0}
+.resume section h2{margin:0 0 8px;padding-bottom:3px;border-bottom:2px solid #18453b;color:#18453b;font-family:Arial,sans-serif;font-size:16px;line-height:1.2;letter-spacing:0;text-transform:uppercase}
+.resume .content{margin-left:10px}
+.resume p{margin:2px 0;font-size:13px}
+.resume .right{float:right}
+.resume .job,.resume .project{margin-bottom:9px}
+.resume ul{margin:2px 0 0;padding-left:19px}
+.resume li{margin-bottom:3px}
+.resume .skills p{margin-left:10px}
+.resume__button__container{text-align:center;margin-top:24px}
+.resume__download,.print-resume-button{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:#18453b;color:#fff;padding:13px 20px;font:700 14px 'DM Sans',Arial,sans-serif;text-decoration:none;cursor:pointer}
+.resume__download:hover,.print-resume-button:hover{background:#0b9a6d}
+.resume-print{margin:0;background:#fff;color:#111}
+.resume-print .resume{width:8.5in;min-height:11in;margin:0 auto;padding:.45in .52in;border-radius:0;box-shadow:none;color:#111;font-size:9.5pt;line-height:1.22}
+.resume-print .resume .header{margin-bottom:9pt}
+.resume-print .resume .header h1{color:#111;font-size:22pt}
+.resume-print .resume .header p{margin-top:4pt;font-size:9pt}
+.resume-print .resume section{margin-bottom:7pt}
+.resume-print .resume section h2{margin-bottom:5pt;padding-bottom:2pt;border-color:#111;color:#111;font-size:11pt}
+.resume-print .resume .content{margin-left:5pt}
+.resume-print .resume p{margin:1pt 0;font-size:9pt}
+.resume-print .resume .job,.resume-print .resume .project{margin-bottom:4pt}
+.resume-print .resume ul{margin-top:1pt;padding-left:15pt}
+.resume-print .resume li{margin-bottom:1.5pt}
+.resume-print .resume .skills p{margin-left:5pt}
+.print-resume-button{position:fixed;right:20px;bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+@page{size:letter;margin:0}
+@media print{
+  .resume-print .resume{width:8.5in;height:11in;min-height:0;overflow:hidden}
+  .print-resume-button{display:none}
 }
-
-.resume {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1rem 2rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-    color: #18453B;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-header h1 {
-    font-size: 2rem;
-    margin: 0;
-    color: #18453B;
-}
-
-header p {
-    font-size: 0.9rem;
-    margin: 0.5rem 0;
-    line-height: 1.5;
-}
-
-header a {
-    color: #18453B;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-
-section p {
-    font-size: 0.9rem;
-}
-
-a {
-    color: #18453B;
-    text-decoration: none;
-}
-
-.right {
-    float: right;
-}
-
-/* Section Styles */
-section {
-    margin-bottom: 1.5rem;
-}
-
-section h2 {
-    border-bottom: 2px solid #18453B;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.content {
-    margin-left: 1rem;
-}
-
-/* Experience and Projects */
-.job, .project {
-    margin-bottom: 1rem;
-}
-
-ul {
-    margin: 0;
-    padding-left: 1.5rem;
-}
-
-li {
-    margin-bottom: 0.5rem;
-}
-
-/* Leadership and Skills */
-.skills p {
-    margin-left: 1rem;
-}
-
-.resume__button__container {
-    text-align: center;
-    margin-bottom: 20px;
+@media(max-width:700px){
+  .resume-page{padding:18px 10px 32px;overflow-x:auto}
+  .resume-page .resume{min-width:650px;padding:24px 28px}
 }

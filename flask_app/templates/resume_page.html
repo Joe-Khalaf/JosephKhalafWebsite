@@ -1,0 +1,16 @@
+{% extends "shared/layout.html" %}
+
+{% block title %}Resume — Joseph Khalaf{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/resume.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+<div class="resume-page">
+    {% include "resume.html" %}
+    <div class="resume__button__container">
+        <a class="resume__download" href="{{ url_for('resume_pdf') }}" target="_blank" rel="noreferrer">Download resume as PDF</a>
+    </div>
+</div>
+{% endblock %}

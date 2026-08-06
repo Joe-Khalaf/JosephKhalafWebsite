@@ -17,7 +17,8 @@
   .navbar__toggle{display:block}
   .navbar__menu{position:absolute;top:76px;left:0;right:0;background:#fff;display:flex;flex-direction:column;align-items:stretch;padding:16px 20px 22px;border-bottom:1px solid rgba(24,69,59,.14);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.25s}
   .navbar__menu.active{opacity:1;visibility:visible;transform:none}
-  .navbar__links{text-align:center;padding:13px}
+  .navbar__links{text-align:center;padding:13px;font-size:.9rem}
+  .navbar__linkedin{font-size:.9rem}
   .linkedin__text{display:block}
   .linkedin__logo{display:none}
   .navbar__toggle.is-active .bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
